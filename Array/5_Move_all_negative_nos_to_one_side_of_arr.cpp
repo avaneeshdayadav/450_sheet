@@ -1,6 +1,24 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
+void dutchNationalFlagAppr(int *arr, int n)
+{
+    int low = 0,high = n-1;
+    
+    while(low <= high)
+    {
+        if(arr[low] < 0)
+            low++;
+        else
+        {
+            swap(arr[low],arr[high]);
+            high--;
+        }
+    }
+}
+
+
 void quickSortAppr(int *arr,int n)
 {
     int i=0,j=n-1;
@@ -23,24 +41,23 @@ void quickSortAppr(int *arr,int n)
     }
 }
 int main() {
-	// your code goes here
 	
 	int n;
-	
 	cin>>n;
 	int arr[n];
-	
+
 	for(int i=0;i<n;i++)
 	{
 	    cin>>arr[i];
 	}
-	
+
 	int i = 0,j=n-1;
-	
+
 	quickSortAppr(arr,n);
+	dutchNationalFlagAppr(arr,n);
 	
-    for(int i=0;i<n;i++)
-        cout<<arr[i]<<" ";
-    cout<<endl;
+	for(int i=0;i<n;i++)
+		cout<<arr[i]<<" ";
+	cout<<endl;
 	return 0;
 }
